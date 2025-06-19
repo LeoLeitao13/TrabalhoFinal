@@ -5,21 +5,22 @@ import java.time.LocalDateTime;
 
 @Entity
 public class Inscricao {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime dataInscricao;
-
-    private boolean ativo = true;
+    private LocalDateTime dataHoraInscricao;
 
     @ManyToOne
-    @JoinColumn(name = "evento_id")
     private Evento evento;
 
     @ManyToOne
-    @JoinColumn(name = "aluno_id")
     private Aluno aluno;
+
+    @Enumerated(EnumType.STRING)
+    private StatusInscricao status;
+
 
     public Long getId() {
         return id;
@@ -29,20 +30,12 @@ public class Inscricao {
         this.id = id;
     }
 
-    public LocalDateTime getDataInscricao() {
-        return dataInscricao;
+    public LocalDateTime getDataHoraInscricao() {
+        return dataHoraInscricao;
     }
 
-    public void setDataInscricao(LocalDateTime dataInscricao) {
-        this.dataInscricao = dataInscricao;
-    }
-
-    public boolean isAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
+    public void setDataHoraInscricao(LocalDateTime dataHoraInscricao) {
+        this.dataHoraInscricao = dataHoraInscricao;
     }
 
     public Evento getEvento() {
@@ -59,5 +52,13 @@ public class Inscricao {
 
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
+    }
+
+    public StatusInscricao getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusInscricao status) {
+        this.status = status;
     }
 }
