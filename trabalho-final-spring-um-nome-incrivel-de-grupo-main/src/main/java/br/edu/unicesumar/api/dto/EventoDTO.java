@@ -12,7 +12,6 @@ public class EventoDTO {
     private Long departamentoId;
     private List<Long> palestrantes;
 
-    // Getters e Setters
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
 
